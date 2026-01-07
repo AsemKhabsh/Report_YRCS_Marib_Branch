@@ -329,44 +329,52 @@ const eventsData = [
     }
 ];
 
-// ورقة 4: إعادة الروابط
-const rflData = [
-    { name: "تسجيل حالات البحث عن المفقودين", beneficiaries: 0 },
-    { name: "إحالة حالات البحث عن المفقودين", beneficiaries: 2 },
-    { name: "التنسيق بشأن جمع شمل أسر المفقودين", beneficiaries: 0 },
-    { name: "نقل الرفات", beneficiaries: 65 },
-    { name: "إحالة حالات أسرى", beneficiaries: 1 },
-    { name: "تسليم رسائل الصليب الأحمر RCM", beneficiaries: 0 },
-    { name: "المشاركة في اليوم الدولي للمفقودين", beneficiaries: 30 },
-    { name: "مشاركة في ورشة عمل للصحفيين للتعريف بالقانون الدولي الإنساني", beneficiaries: 25 },
-    { name: "المشاركة في تسليم جثث للجهات المختصة", beneficiaries: 10 }
-];
+// ورقة 4: إعادة الروابط (محدث)
+const rflData = {
+    // التعريف بأنشطة الجمعية
+    awareness: {
+        women: 167,
+        men: 696,
+        children: 297,
+        hotline: 141,
+        total: 1301
+    },
+    // أنشطة أخرى
+    other: [
+        { name: "بلاغات عن مفقودين", count: 9 },
+        { name: "رسائل موزعة", count: 1 },
+        { name: "إقامة نشاط اليوم العالمي للمفقودين", count: 20 },
+        { name: "ورشة عمل للصحفيين للتعريف بالقانون الدولي الإنساني", count: 25 },
+        { name: "المشاركة في تسليم جثث للجهات المختصة", count: 10 }
+    ],
+    totalOther: 65
+};
 
-// ورقة 5: التوعية بمخاطر الألغام
+// ورقة 5: التوعية بمخاطر الألغام (محدث)
 const minesAwarenessData = [
     {
         month: "سبتمبر",
         location: "مخيمات المدينة والوادي",
         males: 1633,
         females: 1565,
-        total: 6396
+        total: 3198
     },
     {
         month: "نوفمبر",
         location: "مديريتي المدينة والوادي",
         males: 2205,
         females: 2269,
-        total: 8948
+        total: 4474
     },
     {
         month: "ديسمبر",
         location: "مديريتي المدينة والوادي",
         males: 4980,
         females: 4923,
-        total: 19806
+        total: 9903
     }
 ];
-const totalMinesAwareness = 35150;
+const totalMinesAwareness = 17575;
 
 // ورقة 6: الإحالة (نقل سيارات الإسعاف)
 const ambulanceData = {
@@ -388,11 +396,13 @@ const totalStats = {
     events: eventsData.length,
     projectBeneficiaries: projectsData.reduce((sum, p) => sum + p.beneficiaries, 0),
     trainingBeneficiaries: trainingData.reduce((sum, t) => sum + t.beneficiaries, 0),
+    eventVolunteers: eventsData.reduce((sum, e) => sum + e.volunteers, 0),
     minesAwareness: totalMinesAwareness,
     ambulanceReferrals: ambulanceData.totals.total,
-    rflBeneficiaries: rflData.reduce((sum, r) => sum + r.beneficiaries, 0),
+    rflBeneficiaries: rflData.awareness.total + rflData.totalOther,
+    initiativeBeneficiaries: 500, // Added from initiative
     get totalBeneficiaries() {
-        return this.projectBeneficiaries + this.trainingBeneficiaries + this.minesAwareness + this.ambulanceReferrals + this.rflBeneficiaries;
+        return this.projectBeneficiaries + this.trainingBeneficiaries + this.minesAwareness + this.ambulanceReferrals + this.rflBeneficiaries + this.initiativeBeneficiaries;
     }
 };
 
@@ -508,6 +518,71 @@ function populateAmbulanceTable() {
                 <td>${ambulanceData.sayoun[i]}</td>
                 <td>${ambulanceData.alAtir[i]}</td>
                 <td><strong>${total}</strong></td>
+            </tr>
+        `;
+    });
+
+    tbody.innerHTML = rows;
+}
+
+// ================================================
+// ملء جدول الفعاليات
+// ================================================
+
+function populateEventsTable() {
+    const tbody = document.getElementById('eventsTableBody');
+    if (!tbody) return;
+
+    tbody.innerHTML = eventsData.map(event => `
+        <tr>
+            <td>${event.id}</td>
+            <td>${event.name}</td>
+            <td><span class="category-badge" style="background: ${getCategoryColor(event.category)}">${event.category}</span></td>
+            <td>${event.location}</td>
+            <td>${formatDate(event.startDate)}</td>
+            <td>${event.donor}</td>
+            <td><strong>${formatNumber(event.volunteers)}</strong></td>
+        </tr>
+    `).join('');
+}
+
+// ================================================
+// ملء جدول إعادة الروابط
+// ================================================
+
+function populateRFLTable() {
+    const tbody = document.getElementById('rflTableBody');
+    if (!tbody) return;
+
+    let rows = `
+        <tr>
+            <td>1</td>
+            <td>التعريف بأنشطة الجمعية (نساء)</td>
+            <td><strong>${formatNumber(rflData.awareness.women)}</strong></td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>التعريف بأنشطة الجمعية (رجال)</td>
+            <td><strong>${formatNumber(rflData.awareness.men)}</strong></td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>التعريف بأنشطة الجمعية (أطفال)</td>
+            <td><strong>${formatNumber(rflData.awareness.children)}</strong></td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>مشاركة الخط الساخن</td>
+            <td><strong>${formatNumber(rflData.awareness.hotline)}</strong></td>
+        </tr>
+    `;
+
+    rflData.other.forEach((item, i) => {
+        rows += `
+            <tr>
+                <td>${i + 5}</td>
+                <td>${item.name}</td>
+                <td><strong>${formatNumber(item.count)}</strong></td>
             </tr>
         `;
     });
@@ -793,6 +868,8 @@ document.addEventListener('DOMContentLoaded', () => {
     populateTrainingTable();
     populateMinesTable();
     populateAmbulanceTable();
+    populateEventsTable();
+    populateRFLTable();
 
     // أنيميشن الأرقام
     animateNumbers();

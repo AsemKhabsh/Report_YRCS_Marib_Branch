@@ -61,7 +61,7 @@
                     <div class="stat-icon">
                         <i class="fas fa-bomb"></i>
                     </div>
-                    <div class="stat-number" data-count="35150">0</div>
+                    <div class="stat-number" data-count="17575">0</div>
                     <div class="stat-label">مستفيد توعية ألغام</div>
                 </div>
                 <div class="stat-card">
@@ -70,6 +70,13 @@
                     </div>
                     <div class="stat-number" data-count="747">0</div>
                     <div class="stat-label">حالة إحالة إسعافية</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-school"></i>
+                    </div>
+                    <div class="stat-number" data-count="3">0</div>
+                    <div class="stat-label">فصول دراسية جديدة</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-icon">
@@ -227,7 +234,7 @@
             <h2 class="section-title">
                 <i class="fas fa-exclamation-triangle"></i>
                 التوعية بمخاطر الألغام والمقذوفات غير المنفجرة
-                <span class="total-badge">35,150 مستفيد</span>
+                <span class="total-badge">17,575 مستفيد</span>
             </h2>
             <div class="table-wrapper">
                 <table class="projects-table">
@@ -248,8 +255,98 @@
         </div>
     </section>
 
-    <!-- Ambulance Referrals Section -->
+    <!-- Initiative Section -->
+    <section class="initiative-section"
+        style="background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%); padding: 80px 20px;">
+        <div class="container">
+            <h2 class="section-title">
+                <i class="fas fa-hands-helping"></i>
+                مبادرة "متطوعون لمدارس أفضل"
+            </h2>
+            <div class="initiative-card"
+                style="background: #fff; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); text-align: center;">
+                <div class="initiative-icon" style="font-size: 4rem; color: var(--primary-red); margin-bottom: 20px;">
+                    <i class="fas fa-school"></i>
+                </div>
+                <h3 style="font-size: 2rem; margin-bottom: 20px; color: var(--text-dark);">بيئة تعليمية أفضل: بناء 3
+                    فصول جديدة</h3>
+                <p
+                    style="font-size: 1.2rem; line-height: 1.8; color: var(--text-light); max-width: 800px; margin: 0 auto 30px;">
+                    ضمن مبادرة "متطوعون لمدارس أفضل"، تم الانتهاء من <strong>بناء 3 فصول دراسية جديدة</strong> في
+                    <strong>مدرسة الكويت بمخيم السويداء</strong> بمدينة مأرب.
+                    يأتي هذا الإنجاز لتخفيف الازدحام وتوفير بيئة تعليمية آمنة ومحفزة للطلاب النازحين، حيث سيستفيد من هذه
+                    الفصول مئات الطلاب الذين كانوا يدرسون في ظروف صعبة.
+                </p>
+                <div class="initiative-stats"
+                    style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap;">
+                    <div class="i-stat">
+                        <strong style="display: block; font-size: 2.5rem; color: var(--primary-red);">3</strong>
+                        <span style="font-size: 1.1rem; color: var(--text-dark);">فصول دراسية جديدة</span>
+                    </div>
+                    <div class="i-stat">
+                        <strong style="display: block; font-size: 2.5rem; color: var(--primary-red);">مدرسة
+                            الكويت</strong>
+                        <span style="font-size: 1.1rem; color: var(--text-dark);">مخيم السويداء</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section class="table-section activity-section">
+        <div class="container">
+            <h2 class="section-title">
+                <i class="fas fa-calendar-alt"></i>
+                الفعاليات والأنشطة
+                <span class="total-badge">189 متطوع</span>
+            </h2>
+            <div class="table-wrapper">
+                <table class="projects-table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>اسم الفعالية</th>
+                            <th>التصنيف</th>
+                            <th>الموقع</th>
+                            <th>التاريخ</th>
+                            <th>الجهة الممولة</th>
+                            <th>عدد المتطوعين</th>
+                        </tr>
+                    </thead>
+                    <tbody id="eventsTableBody">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Restoring Family Links (RFL) Section -->
     <section class="table-section activity-section" style="background: var(--light-gray);">
+        <div class="container">
+            <h2 class="section-title">
+                <i class="fas fa-link"></i>
+                إعادة الروابط العائلية (RFL)
+                <span class="total-badge">1,366 مستفيد</span>
+            </h2>
+            <div class="table-wrapper">
+                <table class="projects-table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>نوع النشاط</th>
+                            <th>عدد المستفيدين / الحالات</th>
+                        </tr>
+                    </thead>
+                    <tbody id="rflTableBody">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ambulance Referrals Section -->
+    <section class="table-section activity-section">
         <div class="container">
             <h2 class="section-title">
                 <i class="fas fa-ambulance"></i>
@@ -391,6 +488,53 @@
                             <i class="fab fa-whatsapp"></i>
                         </a>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recommendations Section -->
+    <section class="recommendations-section" style="padding: 80px 20px; background: #fff;">
+        <div class="container">
+            <h2 class="section-title">
+                <i class="fas fa-lightbulb"></i>
+                المقترحات والتوصيات
+            </h2>
+            <div class="recommendations-grid"
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+                <div class="recommendation-card"
+                    style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); padding: 30px; border-radius: 15px; border-right: 5px solid var(--primary-red);">
+                    <h3 style="color: var(--primary-red); margin-bottom: 15px;"><i class="fas fa-utensils"></i> الأمن
+                        الغذائي</h3>
+                    <p style="line-height: 1.6; color: var(--text-light);">
+                        توسيع نطاق مشاريع الأمن الغذائي وسبل العيش لتشمل مناطق ريفية نائية، وزيادة دعم المزارعين
+                        بالتقنيات الحديثة.
+                    </p>
+                </div>
+                <div class="recommendation-card"
+                    style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); padding: 30px; border-radius: 15px; border-right: 5px solid var(--secondary-blue);">
+                    <h3 style="color: var(--secondary-blue); margin-bottom: 15px;"><i class="fas fa-home"></i> قطاع
+                        الإيواء</h3>
+                    <p style="line-height: 1.6; color: var(--text-light);">
+                        زيادة التدخلات في قطاع الإيواء، خاصة الحلول المستدامة وصيانة المساكن المتضررة بدلاً من الإغاثة
+                        الطارئة فقط.
+                    </p>
+                </div>
+                <div class="recommendation-card"
+                    style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); padding: 30px; border-radius: 15px; border-right: 5px solid var(--accent-green);">
+                    <h3 style="color: var(--accent-green); margin-bottom: 15px;"><i class="fas fa-users-cog"></i> بناء
+                        القدرات</h3>
+                    <p style="line-height: 1.6; color: var(--text-light);">
+                        تعزيز برامج بناء القدرات للمتطوعين والموظفين في مجالات إدارة الكوارث والتقييم والرصد والتقييم.
+                    </p>
+                </div>
+                <div class="recommendation-card"
+                    style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); padding: 30px; border-radius: 15px; border-right: 5px solid #9B59B6;">
+                    <h3 style="color: #9B59B6; margin-bottom: 15px;"><i class="fas fa-leaf"></i> الاستدامة</h3>
+                    <p style="line-height: 1.6; color: var(--text-light);">
+                        التركيز على المشاريع ذات الأثر المستدام وطويل الأمد، وتعزيز الشراكات المجتمعية لضمان استمرارية
+                        الخدمات.
+                    </p>
                 </div>
             </div>
         </div>
