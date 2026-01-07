@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>التقرير السنوي 2025 - جمعية الهلال الأحمر اليمني فرع مأرب</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <img src="شعار الهلال الأحمر مفرغ.png" alt="شعار جمعية الهلال الأحمر اليمني" class="logo">
+            <div class="header-text">
+                <h1>جمعية الهلال الأحمر اليمني</h1>
+                <h2>فرع مأرب</h2>
+                <p class="tagline">التقرير السنوي للمشاريع والأنشطة 2025</p>
+            </div>
+        </div>
+        <div class="header-actions">
+            <button onclick="window.print()" class="btn btn-print">
+                <i class="fas fa-print"></i> طباعة
+            </button>
+            <button onclick="downloadPDF()" class="btn btn-download">
+                <i class="fas fa-download"></i> تحميل PDF
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Stats -->
+    <section class="hero-stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-number" data-count="44173">0</div>
+                    <div class="stat-label">إجمالي المستفيدين</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <div class="stat-number" data-count="19">0</div>
+                    <div class="stat-label">مشروع استجابة</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="stat-number" data-count="131">0</div>
+                    <div class="stat-label">متدرب</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-bomb"></i>
+                    </div>
+                    <div class="stat-number" data-count="35150">0</div>
+                    <div class="stat-label">مستفيد توعية ألغام</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-ambulance"></i>
+                    </div>
+                    <div class="stat-number" data-count="747">0</div>
+                    <div class="stat-label">حالة إحالة إسعافية</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <div class="stat-number" data-count="5">0</div>
+                    <div class="stat-label">جهة ممولة</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Charts Section -->
+    <section class="charts-section">
+        <div class="container">
+            <h2 class="section-title">
+                <i class="fas fa-chart-pie"></i>
+                الإحصائيات البيانية
+            </h2>
+            <div class="charts-grid">
+                <div class="chart-card">
+                    <h3>توزيع مشاريع الاستجابة حسب الفئة</h3>
+                    <div class="chart-container">
+                        <canvas id="categoryChart"></canvas>
+                    </div>
+                </div>
+                <div class="chart-card">
+                    <h3>المستفيدين حسب الجهة الممولة</h3>
+                    <div class="chart-container">
+                        <canvas id="donorChart"></canvas>
+                    </div>
+                </div>
+                <div class="chart-card">
+                    <h3>توزيع المستفيدين حسب نوع النشاط</h3>
+                    <div class="chart-container">
+                        <canvas id="activitiesChart"></canvas>
+                    </div>
+                </div>
+                <div class="chart-card">
+                    <h3>حالات الإحالة الإسعافية الشهرية</h3>
+                    <div class="chart-container">
+                        <canvas id="ambulanceChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects by Category -->
+    <section class="category-section">
+        <div class="container">
+            <h2 class="section-title">
+                <i class="fas fa-th-large"></i>
+                مشاريع الاستجابة حسب الفئة
+            </h2>
+            <div class="category-cards">
+                <div class="category-card cat-assessment">
+                    <div class="category-icon"><i class="fas fa-clipboard-check"></i></div>
+                    <h4>التقييم</h4>
+                    <span class="category-count">5 مشاريع</span>
+                    <span class="category-beneficiaries">1,288 مستفيد</span>
+                </div>
+                <div class="category-card cat-shelter">
+                    <div class="category-icon"><i class="fas fa-home"></i></div>
+                    <h4>الإيواء</h4>
+                    <span class="category-count">3 مشاريع</span>
+                    <span class="category-beneficiaries">3,100 مستفيد</span>
+                </div>
+                <div class="category-card cat-agriculture">
+                    <div class="category-icon"><i class="fas fa-seedling"></i></div>
+                    <h4>زراعي</h4>
+                    <span class="category-count">4 مشاريع</span>
+                    <span class="category-beneficiaries">950 مستفيد</span>
+                </div>
+                <div class="category-card cat-discussion">
+                    <div class="category-icon"><i class="fas fa-comments"></i></div>
+                    <h4>جلسات نقاش</h4>
+                    <span class="category-count">3 مشاريع</span>
+                    <span class="category-beneficiaries">19 مستفيد</span>
+                </div>
+                <div class="category-card cat-verification">
+                    <div class="category-icon"><i class="fas fa-check-double"></i></div>
+                    <h4>التحقق</h4>
+                    <span class="category-count">3 مشاريع</span>
+                    <span class="category-beneficiaries">1,800 مستفيد</span>
+                </div>
+                <div class="category-card cat-cash">
+                    <div class="category-icon"><i class="fas fa-money-bill-wave"></i></div>
+                    <h4>مساعدات نقدية</h4>
+                    <span class="category-count">1 مشروع</span>
+                    <span class="category-beneficiaries">1,000 مستفيد</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Table -->
+    <section class="table-section">
+        <div class="container">
+            <h2 class="section-title">
+                <i class="fas fa-table"></i>
+                جدول مشاريع الاستجابة
+            </h2>
+            <div class="table-wrapper">
+                <table class="projects-table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>اسم المشروع</th>
+                            <th>الفئة</th>
+                            <th>مكان التنفيذ</th>
+                            <th>الفترة</th>
+                            <th>الجهة الممولة</th>
+                            <th>المستفيدين</th>
+                        </tr>
+                    </thead>
+                    <tbody id="projectsTableBody">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Training Section -->
+    <section class="table-section activity-section" style="background: var(--light-gray);">
+        <div class="container">
+            <h2 class="section-title">
+                <i class="fas fa-graduation-cap"></i>
+                التدريب وبناء القدرات
+                <span class="total-badge">131 متدرب</span>
+            </h2>
+            <div class="table-wrapper">
+                <table class="projects-table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>اسم الدورة</th>
+                            <th>مكان التنفيذ</th>
+                            <th>الفترة</th>
+                            <th>الفئة المستهدفة</th>
+                            <th>الجهة الممولة</th>
+                            <th>المتدربين</th>
+                        </tr>
+                    </thead>
+                    <tbody id="trainingTableBody">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mines Awareness Section -->
+    <section class="table-section activity-section">
+        <div class="container">
+            <h2 class="section-title">
+                <i class="fas fa-exclamation-triangle"></i>
+                التوعية بمخاطر الألغام والمقذوفات غير المنفجرة
+                <span class="total-badge">35,150 مستفيد</span>
+            </h2>
+            <div class="table-wrapper">
+                <table class="projects-table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>الشهر</th>
+                            <th>الموقع</th>
+                            <th>ذكور</th>
+                            <th>إناث</th>
+                            <th>الإجمالي</th>
+                        </tr>
+                    </thead>
+                    <tbody id="minesTableBody">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ambulance Referrals Section -->
+    <section class="table-section activity-section" style="background: var(--light-gray);">
+        <div class="container">
+            <h2 class="section-title">
+                <i class="fas fa-ambulance"></i>
+                الإحالة بسيارات الإسعاف
+                <span class="total-badge">747 حالة</span>
+            </h2>
+            <div class="table-wrapper">
+                <table class="projects-table ambulance-table">
+                    <thead>
+                        <tr>
+                            <th>الشهر</th>
+                            <th>الفلج</th>
+                            <th>الكسارة</th>
+                            <th>سيئون</th>
+                            <th>مستشفى العطير</th>
+                            <th>الإجمالي</th>
+                        </tr>
+                    </thead>
+                    <tbody id="ambulanceTableBody">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Donors Section -->
+    <section class="donors-section">
+        <div class="container">
+            <h2 class="section-title">
+                <i class="fas fa-hand-holding-heart"></i>
+                الجهات الممولة والشركاء
+            </h2>
+            <div class="donors-grid">
+                <div class="donor-card">
+                    <img src="ICRC LOGO.gif" alt="ICRC Logo" class="donor-logo">
+                    <h4>اللجنة الدولية للصليب الأحمر</h4>
+                    <span>ICRC</span>
+                </div>
+                <div class="donor-card">
+                    <img src="IFRC logo.png" alt="IFRC Logo" class="donor-logo">
+                    <h4>الاتحاد الدولي لجمعيات الصليب الأحمر والهلال الأحمر</h4>
+                    <span>IFRC</span>
+                </div>
+                <div class="donor-card">
+                    <img src="Norwegian_Red_Cross_logo.svg.png" alt="Norwegian Red Cross Logo" class="donor-logo">
+                    <h4>الصليب الأحمر النرويجي</h4>
+                    <span>Norwegian Red Cross</span>
+                </div>
+                <div class="donor-card">
+                    <img src="GRC logo.png" alt="German Red Cross Logo" class="donor-logo">
+                    <h4>الصليب الأحمر الألماني</h4>
+                    <span>German Red Cross</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section">
+        <div class="container">
+            <h2 class="section-title">
+                <i class="fas fa-images"></i>
+                معرض الصور
+            </h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="صور الأنشطة/توزيع 1600 سلو إيوائية فبراير  (1).jpg" alt="توزيع مواد إيوائية">
+                    <div class="gallery-overlay">
+                        <span>توزيع مواد إيوائية</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="صور الأنشطة/التقييم الأولي لأضرار الأمطار والسيول (1).jpg" alt="تقييم أضرار السيول">
+                    <div class="gallery-overlay">
+                        <span>تقييم أضرار السيول</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="صور الأنشطة/التوعية بالألغام (1).jpeg" alt="التوعية بالألغام">
+                    <div class="gallery-overlay">
+                        <span>التوعية بالألغام</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="صور الأنشطة/مبادرة بناء 3 فصول.jpeg" alt="مبادرة بناء فصول">
+                    <div class="gallery-overlay">
+                        <span>مبادرة بناء فصول</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="صور الأنشطة/التدريب (1).jpg" alt="التدريب">
+                    <div class="gallery-overlay">
+                        <span>التدريب وبناء القدرات</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="صور الأنشطة/مشروع 500 حقيبة إيواء ديسمبر (1).jpeg" alt="توزيع حقائب إيواء">
+                    <div class="gallery-overlay">
+                        <span>توزيع حقائب إيواء</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <h2 class="section-title">
+                <i class="fas fa-address-card"></i>
+                معلومات التواصل
+            </h2>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h4>العنوان</h4>
+                    <p>مأرب - المطار - مجمع الخير - أمام جامع الفتح</p>
+                </div>
+                <div class="contact-card">
+                    <i class="fas fa-phone-alt"></i>
+                    <h4>الهاتف</h4>
+                    <p>06332525</p>
+                    <p>782999164</p>
+                </div>
+                <div class="contact-card">
+                    <i class="fas fa-envelope"></i>
+                    <h4>البريد الإلكتروني</h4>
+                    <a href="mailto:helal2018mareb@gmail.com">helal2018mareb@gmail.com</a>
+                </div>
+                <div class="contact-card social-links">
+                    <i class="fas fa-share-alt"></i>
+                    <h4>تابعنا</h4>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/share/1CdRPJWS4r/" target="_blank"
+                            class="social-icon facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://wa.me/+967782999164" target="_blank" class="social-icon whatsapp">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <img src="شعار الهلال الأحمر مفرغ.png" alt="شعار الهلال الأحمر" class="footer-logo">
+                <p>جمعية الهلال الأحمر اليمني - فرع مأرب</p>
+                <p class="copyright">© 2025 جميع الحقوق محفوظة</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
