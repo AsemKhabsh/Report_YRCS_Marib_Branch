@@ -331,21 +331,19 @@ const eventsData = [
 
 // ورقة 4: إعادة الروابط (محدث)
 const rflData = {
-    // التعريف بأنشطة الجمعية
+    // التعريف بأنشطة الجمعية والخط الساخن
     awareness: {
-        women: 167,
-        men: 696,
-        children: 297,
+        total: 1160,
         hotline: 141,
-        total: 1301
+        beneficiariesTotal: 1301
     },
     // أنشطة أخرى
     other: [
         { name: "بلاغات عن مفقودين", count: 9 },
         { name: "رسائل موزعة", count: 1 },
-        { name: "إقامة نشاط اليوم العالمي للمفقودين", count: 20 },
+        { name: "إقامة نشاط اليوم العالمي للمفقودين لأسر المفقودين", count: 20 },
         { name: "ورشة عمل للصحفيين للتعريف بالقانون الدولي الإنساني", count: 25 },
-        { name: "المشاركة في تسليم جثث للجهات المختصة", count: 10 }
+        { name: "المشاركة في تسليم جثث للجهات المختصة بالتعاون مع فرع حضرموت", count: 10 }
     ],
     totalOther: 65
 };
@@ -354,7 +352,7 @@ const rflData = {
 const minesAwarenessData = [
     {
         month: "سبتمبر",
-        location: "مخيمات المدينة والوادي",
+        location: "محيمات المدينة والوادي",
         males: 1633,
         females: 1565,
         total: 3198
@@ -362,19 +360,31 @@ const minesAwarenessData = [
     {
         month: "نوفمبر",
         location: "مديريتي المدينة والوادي",
-        males: 2205,
-        females: 2269,
-        total: 4474
+        males: 572,
+        females: 704,
+        total: 1276
     },
     {
         month: "ديسمبر",
         location: "مديريتي المدينة والوادي",
-        males: 4980,
-        females: 4923,
-        total: 9903
+        males: 1142,
+        females: 1089,
+        total: 2231
     }
 ];
-const totalMinesAwareness = 17575;
+const totalMinesAwareness = 6705;
+
+// ورقة 7: الإعلام والتعريف بالحركة الدولية
+const mediaData = [
+    { quarter: "الربع الأول", activity: "ورشة", count: 1, beneficiaries: 20, location: "المدينة - مبنى الفرع", target: "وجهاء المجتمع" },
+    { quarter: "الربع الأول", activity: "جلسة", count: 4, beneficiaries: 69, location: "حريب", target: "المجتمع" },
+    { quarter: "الربع الثاني", activity: "ورشة", count: 1, beneficiaries: 20, location: "المدينة - مبنى الفرع", target: "إعلاميين" },
+    { quarter: "الربع الثاني", activity: "جلسة", count: 4, beneficiaries: 72, location: "الرويك", target: "المجتمع" },
+    { quarter: "الربع الثالث", activity: "ورشة", count: 1, beneficiaries: 20, location: "المدينة - مبنى الفرع", target: "مكاتب حكومية" },
+    { quarter: "الربع الثالث", activity: "جلسة", count: 4, beneficiaries: 61, location: "حريب", target: "مجتمع محلي" },
+    { quarter: "الربع الرابع", activity: "ورشة", count: 1, beneficiaries: 20, location: "المدينة - مبنى الفرع", target: "عقال حارات" },
+    { quarter: "الربع الرابع", activity: "جلسة", count: 5, beneficiaries: 80, location: "الوادي / الرويك", target: "مجتمع محلي" }
+];
 
 // ورقة 6: الإحالة (نقل سيارات الإسعاف)
 const ambulanceData = {
@@ -399,10 +409,11 @@ const totalStats = {
     eventVolunteers: eventsData.reduce((sum, e) => sum + e.volunteers, 0),
     minesAwareness: totalMinesAwareness,
     ambulanceReferrals: ambulanceData.totals.total,
-    rflBeneficiaries: rflData.awareness.total + rflData.totalOther,
+    rflBeneficiaries: rflData.awareness.beneficiariesTotal + rflData.totalOther,
+    mediaBeneficiaries: mediaData.reduce((sum, m) => sum + m.beneficiaries, 0),
     initiativeBeneficiaries: 500, // Added from initiative
     get totalBeneficiaries() {
-        return this.projectBeneficiaries + this.trainingBeneficiaries + this.minesAwareness + this.ambulanceReferrals + this.rflBeneficiaries + this.initiativeBeneficiaries;
+        return this.projectBeneficiaries + this.trainingBeneficiaries + this.minesAwareness + this.ambulanceReferrals + this.rflBeneficiaries + this.initiativeBeneficiaries + this.mediaBeneficiaries;
     }
 };
 
@@ -547,6 +558,47 @@ function populateEventsTable() {
 }
 
 // ================================================
+// ملء جدول الإعلام
+// ================================================
+
+function populateMediaTable() {
+    const tbody = document.getElementById('mediaTableBody');
+    if (!tbody) return;
+
+    let rows = '';
+    let lastQuarter = '';
+    let quarterCount = 0;
+
+    // Count occurrences of each quarter
+    const quarterCounts = {};
+    mediaData.forEach(data => {
+        quarterCounts[data.quarter] = (quarterCounts[data.quarter] || 0) + 1;
+    });
+
+    const processedQuarters = {};
+
+    mediaData.forEach((data, i) => {
+        const isNewQuarter = !processedQuarters[data.quarter];
+
+        rows += `<tr>
+            <td>${i + 1}</td>
+            ${isNewQuarter ? `<td rowspan="${quarterCounts[data.quarter]}">${data.quarter}</td>` : ''}
+            <td>${data.activity}</td>
+            <td>${data.count}</td>
+            <td>${data.location}</td>
+            <td>${data.target}</td>
+            <td><strong>${formatNumber(data.beneficiaries)}</strong></td>
+        </tr>`;
+
+        if (isNewQuarter) {
+            processedQuarters[data.quarter] = true;
+        }
+    });
+
+    tbody.innerHTML = rows;
+}
+
+// ================================================
 // ملء جدول إعادة الروابط
 // ================================================
 
@@ -557,21 +609,11 @@ function populateRFLTable() {
     let rows = `
         <tr>
             <td>1</td>
-            <td>التعريف بأنشطة الجمعية (نساء)</td>
-            <td><strong>${formatNumber(rflData.awareness.women)}</strong></td>
+            <td>التعريف بأنشطة الجمعية</td>
+            <td><strong>${formatNumber(rflData.awareness.total)}</strong></td>
         </tr>
         <tr>
             <td>2</td>
-            <td>التعريف بأنشطة الجمعية (رجال)</td>
-            <td><strong>${formatNumber(rflData.awareness.men)}</strong></td>
-        </tr>
-        <tr>
-            <td>3</td>
-            <td>التعريف بأنشطة الجمعية (أطفال)</td>
-            <td><strong>${formatNumber(rflData.awareness.children)}</strong></td>
-        </tr>
-        <tr>
-            <td>4</td>
             <td>مشاركة الخط الساخن</td>
             <td><strong>${formatNumber(rflData.awareness.hotline)}</strong></td>
         </tr>
@@ -580,7 +622,7 @@ function populateRFLTable() {
     rflData.other.forEach((item, i) => {
         rows += `
             <tr>
-                <td>${i + 5}</td>
+                <td>${i + 3}</td>
                 <td>${item.name}</td>
                 <td><strong>${formatNumber(item.count)}</strong></td>
             </tr>
@@ -810,24 +852,7 @@ function createAmbulanceChart() {
 // ================================================
 
 function downloadPDF() {
-    const printContent = document.documentElement.outerHTML;
-    const printWindow = window.open('', '_blank');
-    printWindow.document.write(printContent);
-    printWindow.document.close();
-
-    const style = printWindow.document.createElement('style');
-    style.textContent = `
-        @media print {
-            .header-actions { display: none !important; }
-            body { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
-        }
-    `;
-    printWindow.document.head.appendChild(style);
-
-    setTimeout(() => {
-        printWindow.print();
-        printWindow.close();
-    }, 500);
+    window.print();
 }
 
 // ================================================
@@ -870,6 +895,7 @@ document.addEventListener('DOMContentLoaded', () => {
     populateAmbulanceTable();
     populateEventsTable();
     populateRFLTable();
+    populateMediaTable();
 
     // أنيميشن الأرقام
     animateNumbers();

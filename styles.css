@@ -767,7 +767,14 @@ body {
 
     .category-card,
     .donor-card,
-    .contact-card {
+    .contact-card,
+    .recommendation-card,
+    .initiative-card {
+        page-break-inside: avoid;
+    }
+
+    .table-wrapper,
+    .section-title {
         page-break-inside: avoid;
     }
 

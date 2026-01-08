@@ -24,10 +24,7 @@
         </div>
         <div class="header-actions">
             <button onclick="window.print()" class="btn btn-print">
-                <i class="fas fa-print"></i> طباعة
-            </button>
-            <button onclick="downloadPDF()" class="btn btn-download">
-                <i class="fas fa-download"></i> تحميل PDF
+                <i class="fas fa-print"></i> طباعة التقرير
             </button>
         </div>
     </header>
@@ -40,7 +37,7 @@
                     <div class="stat-icon">
                         <i class="fas fa-users"></i>
                     </div>
-                    <div class="stat-number" data-count="44173">0</div>
+                    <div class="stat-number" data-count="17665">0</div>
                     <div class="stat-label">إجمالي المستفيدين</div>
                 </div>
                 <div class="stat-card">
@@ -61,7 +58,7 @@
                     <div class="stat-icon">
                         <i class="fas fa-bomb"></i>
                     </div>
-                    <div class="stat-number" data-count="17575">0</div>
+                    <div class="stat-number" data-count="6705">0</div>
                     <div class="stat-label">مستفيد توعية ألغام</div>
                 </div>
                 <div class="stat-card">
@@ -70,6 +67,13 @@
                     </div>
                     <div class="stat-number" data-count="747">0</div>
                     <div class="stat-label">حالة إحالة إسعافية</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <div class="stat-number" data-count="362">0</div>
+                    <div class="stat-label">مستفيد تم تعريفهم بالحركة الدولية</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-icon">
@@ -234,7 +238,7 @@
             <h2 class="section-title">
                 <i class="fas fa-exclamation-triangle"></i>
                 التوعية بمخاطر الألغام والمقذوفات غير المنفجرة
-                <span class="total-badge">17,575 مستفيد</span>
+                <span class="total-badge">6,705 مستفيد</span>
             </h2>
             <div class="table-wrapper">
                 <table class="projects-table">
@@ -321,6 +325,34 @@
         </div>
     </section>
 
+    <!-- Media Section -->
+    <section class="table-section activity-section" style="background: var(--light-gray);">
+        <div class="container">
+            <h2 class="section-title">
+                <i class="fas fa-bullhorn"></i>
+                الإعلام والتعريف بالحركة الدولية
+                <span class="total-badge">362 مستفيد</span>
+            </h2>
+            <div class="table-wrapper">
+                <table class="projects-table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>الربع</th>
+                            <th>النشاط</th>
+                            <th>العدد</th>
+                            <th>الموقع</th>
+                            <th>المستهدفين</th>
+                            <th>المستفيدين</th>
+                        </tr>
+                    </thead>
+                    <tbody id="mediaTableBody">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
     <!-- Restoring Family Links (RFL) Section -->
     <section class="table-section activity-section" style="background: var(--light-gray);">
         <div class="container">
@@ -353,6 +385,22 @@
                 الإحالة بسيارات الإسعاف
                 <span class="total-badge">747 حالة</span>
             </h2>
+
+            <div class="initiative-card"
+                style="background: #fff; padding: 30px; border-radius: 15px; margin-bottom: 30px; border: 1px solid #eee;">
+                <div style="display: flex; align-items: center; gap: 20px;">
+                    <i class="fas fa-ambulance" style="font-size: 2.5rem; color: var(--primary-red);"></i>
+                    <div>
+                        <h3 style="margin-bottom: 10px;">مشروع إدخال سيارة إسعاف عناية مركزة</h3>
+                        <p style="color: var(--text-light); line-height: 1.6;">
+                            تم إدخال سيارة إسعاف عناية مركزة إلى الخدمة في مستشفى العطير بمديرية حريب، وذلك لنقل الحالات
+                            الحرجة من المستشفى إلى مستشفيات مدينة مأرب، مما يساهم في إنقاذ الأرواح وتحسين الخدمات
+                            الإسعافية في المديرية.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
             <div class="table-wrapper">
                 <table class="projects-table ambulance-table">
                     <thead>
@@ -368,38 +416,6 @@
                     <tbody id="ambulanceTableBody">
                     </tbody>
                 </table>
-            </div>
-        </div>
-    </section>
-
-    <!-- Donors Section -->
-    <section class="donors-section">
-        <div class="container">
-            <h2 class="section-title">
-                <i class="fas fa-hand-holding-heart"></i>
-                الجهات الممولة والشركاء
-            </h2>
-            <div class="donors-grid">
-                <div class="donor-card">
-                    <img src="ICRC LOGO.gif" alt="ICRC Logo" class="donor-logo">
-                    <h4>اللجنة الدولية للصليب الأحمر</h4>
-                    <span>ICRC</span>
-                </div>
-                <div class="donor-card">
-                    <img src="IFRC logo.png" alt="IFRC Logo" class="donor-logo">
-                    <h4>الاتحاد الدولي لجمعيات الصليب الأحمر والهلال الأحمر</h4>
-                    <span>IFRC</span>
-                </div>
-                <div class="donor-card">
-                    <img src="Norwegian_Red_Cross_logo.svg.png" alt="Norwegian Red Cross Logo" class="donor-logo">
-                    <h4>الصليب الأحمر النرويجي</h4>
-                    <span>Norwegian Red Cross</span>
-                </div>
-                <div class="donor-card">
-                    <img src="GRC logo.png" alt="German Red Cross Logo" class="donor-logo">
-                    <h4>الصليب الأحمر الألماني</h4>
-                    <span>German Red Cross</span>
-                </div>
             </div>
         </div>
     </section>
@@ -448,45 +464,83 @@
                         <span>توزيع حقائب إيواء</span>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="contact-section">
-        <div class="container">
-            <h2 class="section-title">
-                <i class="fas fa-address-card"></i>
-                معلومات التواصل
-            </h2>
-            <div class="contact-grid">
-                <div class="contact-card">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <h4>العنوان</h4>
-                    <p>مأرب - المطار - مجمع الخير - أمام جامع الفتح</p>
+                <div class="gallery-item">
+                    <img src="صور الأنشطة/إدخال سيارة إسعاف إلى الخدمة بمستشفى العطير بحريب.jpeg"
+                        alt="سيارة إسعاف العناية المركزة">
+                    <div class="gallery-overlay">
+                        <span>سيارة إسعاف العناية المركزة</span>
+                    </div>
                 </div>
-                <div class="contact-card">
-                    <i class="fas fa-phone-alt"></i>
-                    <h4>الهاتف</h4>
-                    <p>06332525</p>
-                    <p>782999164</p>
+                <div class="gallery-item">
+                    <img src="صور الأنشطة/توزيع درنات البطاطس.jpeg" alt="توزيع درنات البطاطس">
+                    <div class="gallery-overlay">
+                        <span>توزيع درنات البطاطس</span>
+                    </div>
                 </div>
-                <div class="contact-card">
-                    <i class="fas fa-envelope"></i>
-                    <h4>البريد الإلكتروني</h4>
-                    <a href="mailto:helal2018mareb@gmail.com">helal2018mareb@gmail.com</a>
+                <div class="gallery-item">
+                    <img src="صور الأنشطة/فعالية ذكرى تأسيس الفرع.jpeg" alt="ذكرى تأسيس الفرع">
+                    <div class="gallery-overlay">
+                        <span>ذكرى تأسيس الفرع</span>
+                    </div>
                 </div>
-                <div class="contact-card social-links">
-                    <i class="fas fa-share-alt"></i>
-                    <h4>تابعنا</h4>
-                    <div class="social-icons">
-                        <a href="https://www.facebook.com/share/1CdRPJWS4r/" target="_blank"
-                            class="social-icon facebook">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="https://wa.me/+967782999164" target="_blank" class="social-icon whatsapp">
-                            <i class="fab fa-whatsapp"></i>
-                        </a>
+                <div class="gallery-item">
+                    <img src="صور الأنشطة/استقبال جثث .jpeg" alt="استقبال الجثث">
+                    <div class="gallery-overlay">
+                        <span>استقبال الجثث (RFL)</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="صور الأنشطة/التعريف بالحركة الدولية (2).jpeg" alt="التعريف بالحركة الدولية">
+                    <div class="gallery-overlay">
+                        <span>التعريف بالحركة الدولية</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="صور الأنشطة/التقييم متعدد القطاعات (1).jpg" alt="التقييم متعدد القطاعات">
+                    <div class="gallery-overlay">
+                        <span>التقييم متعدد القطاعات</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="صور الأنشطة/توزيع 1100 سلة إيوائية (1).jpeg" alt="توزيع سلات إيوائية">
+                    <div class="gallery-overlay">
+                        <span>توزيع 1100 سلة إيوائية</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="صور الأنشطة/دورة اعداد المبادرات.jpeg" alt="دورة إعداد المبادرات">
+                    <div class="gallery-overlay">
+                        <span>دورة إعداد المبادرات</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="صور الأنشطة/تدريب اسعافات أولية.jpeg" alt="تدريب إسعافات أولية">
+                    <div class="gallery-overlay">
+                        <span>تدريب إسعافات أولية</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="صور الأنشطة/تدشين افتتاح مخزن الفرع.jpeg" alt="افتتاح مخزن الفرع">
+                    <div class="gallery-overlay">
+                        <span>افتتاح مخزن الفرع</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="صور الأنشطة/اليوم العالمي للمفقودين.jpeg" alt="اليوم العالمي للمفقودين">
+                    <div class="gallery-overlay">
+                        <span>اليوم العالمي للمفقودين</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="صور الأنشطة/الإحالة (نقل حالات).jpeg" alt="الإحالة">
+                    <div class="gallery-overlay">
+                        <span>نقل الحالات الإسعافية</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="صور الأنشطة/التوعية بالألغام (3).jpeg" alt="التوعية بالألغام">
+                    <div class="gallery-overlay">
+                        <span>التوعية بالألغام</span>
                     </div>
                 </div>
             </div>
@@ -536,9 +590,100 @@
                         الخدمات.
                     </p>
                 </div>
+                <div class="recommendation-card"
+                    style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); padding: 30px; border-radius: 15px; border-right: 5px solid #E74C3C;">
+                    <h3 style="color: #E74C3C; margin-bottom: 15px;"><i class="fas fa-heartbeat"></i> الصحة والتوعية
+                    </h3>
+                    <p style="line-height: 1.6; color: var(--text-light);">
+                        الاهتمام بالأنشطة الصحية وحملات التوعية الصحية المجتمعية، نظراً لانتشار الأوبئة والحاجة الماسة
+                        لتعزيز السلوكيات الصحية السليمة.
+                    </p>
+                </div>
+                <div class="recommendation-card"
+                    style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); padding: 30px; border-radius: 15px; border-right: 5px solid #F39C12;">
+                    <h3 style="color: #F39C12; margin-bottom: 15px;"><i class="fas fa-user-md"></i> التدريب التخصصي</h3>
+                    <p style="line-height: 1.6; color: var(--text-light);">
+                        تأهيل وتدريب المتطوعين في دورات تخصصية دقيقة مثل انتشال الجثث، الإخلاء، والإسعافات الأولية
+                        المتقدمة لرفع جاهزية فرق الاستجابة.
+                    </p>
+                </div>
             </div>
         </div>
     </section>
+
+    <!-- Donors Section -->
+    <section class="donors-section">
+        <div class="container">
+            <h2 class="section-title">
+                <i class="fas fa-hand-holding-heart"></i>
+                الجهات الممولة والشركاء
+            </h2>
+            <div class="donors-grid">
+                <div class="donor-card">
+                    <img src="ICRC LOGO.gif" alt="ICRC Logo" class="donor-logo">
+                    <h4>اللجنة الدولية للصليب الأحمر</h4>
+                    <span>ICRC</span>
+                </div>
+                <div class="donor-card">
+                    <img src="IFRC logo.png" alt="IFRC Logo" class="donor-logo">
+                    <h4>الاتحاد الدولي لجمعيات الصليب الأحمر والهلال الأحمر</h4>
+                    <span>IFRC</span>
+                </div>
+                <div class="donor-card">
+                    <img src="Norwegian_Red_Cross_logo.svg.png" alt="Norwegian Red Cross Logo" class="donor-logo">
+                    <h4>الصليب الأحمر النرويجي</h4>
+                    <span>Norwegian Red Cross</span>
+                </div>
+                <div class="donor-card">
+                    <img src="GRC logo.png" alt="German Red Cross Logo" class="donor-logo">
+                    <h4>الصليب الأحمر الألماني</h4>
+                    <span>German Red Cross</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <h2 class="section-title">
+                <i class="fas fa-address-card"></i>
+                معلومات التواصل
+            </h2>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h4>العنوان</h4>
+                    <p>مأرب - المطار - مجمع الخير - أمام جامع الفتح</p>
+                </div>
+                <div class="contact-card">
+                    <i class="fas fa-phone-alt"></i>
+                    <h4>الهاتف</h4>
+                    <p>06332525</p>
+                    <p>782999164</p>
+                </div>
+                <div class="contact-card">
+                    <i class="fas fa-envelope"></i>
+                    <h4>البريد الإلكتروني</h4>
+                    <a href="mailto:helal2018mareb@gmail.com">helal2018mareb@gmail.com</a>
+                </div>
+                <div class="contact-card social-links">
+                    <i class="fas fa-share-alt"></i>
+                    <h4>تابعنا</h4>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/share/1CdRPJWS4r/" target="_blank"
+                            class="social-icon facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://wa.me/+967782999164" target="_blank" class="social-icon whatsapp">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
 
     <!-- Footer -->
     <footer class="footer">
